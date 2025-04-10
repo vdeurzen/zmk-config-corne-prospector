@@ -128,7 +128,6 @@
     behaviors {
         as_ht: autoshift_hold_tap {
             compatible = "zmk,behavior-hold-tap";
-            label = "AUTOSHIFT_HOLD_TAP";
             #binding-cells = <2>;
             tapping-term-ms = <200>;
             bindings = <&shifted>, <&kp>;
@@ -136,7 +135,6 @@
 
         hmr: hmr {
             compatible = "zmk,behavior-hold-tap";
-            label = "HMR";
             bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
@@ -150,7 +148,6 @@
 
         hml: hml {
             compatible = "zmk,behavior-hold-tap";
-            label = "HML";
             bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
@@ -164,7 +161,6 @@
 
         ntild: ntild {
             compatible = "zmk,behavior-mod-morph";
-            label = "NTILD";
             bindings = <&ntil>, <&ntild_cap>;
 
             #binding-cells = <0>;
@@ -175,7 +171,6 @@
     macros {
         shifted: macro_shifted_kp {
             #binding-cells = <1>;
-            label = "MACRO_SHIFTED_KP";
             compatible = "zmk,behavior-macro-one-param";
             bindings =
                 <&macro_press>,
@@ -189,7 +184,6 @@
         as: autoshift {
             compatible = "zmk,behavior-macro-one-param";
             #binding-cells = <1>;
-            label = "AUTOSHIFT_KP";
             bindings =
                 <&macro_press>,
                 <&macro_param_1to1 &macro_param_1to2 &as_ht MACRO_PLACEHOLDER MACRO_PLACEHOLDER>,
@@ -203,7 +197,6 @@
             #binding-cells = <0>;
             bindings = <&macro_tap>, <&kp LS(GRAVE)>, <&macro_tap>, <&kp N>;
 
-            label = "UC_NTIL";
             wait-ms = <0>;
         };
 
@@ -220,42 +213,36 @@
                 <&macro_release>,
                 <&kp LEFT_SHIFT>;
 
-            label = "UC_NTILD_CAP";
         };
 
         dir_dquot: dir_dquot {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp DQT &kp SPACE>;
-            label = "DIR_DQUOT";
         };
 
         dir_squot: dir_squot {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp SQT &kp SPACE>;
-            label = "DIR_SQUOT";
         };
 
         dir_btck: dir_btck {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp GRAVE &kp SPACE>;
-            label = "DIR_BTCK";
         };
 
         dongle_boot: dongle_boot {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&bootloader>;
-            label = "DONGLE_BOOT";
         };
 
         dir_tilde: dir_tilde {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp TILDE &kp SPACE>;
-            label = "DIR_TILDE";
         };
     };
 
@@ -270,7 +257,6 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             display-name = "Base";
-            label = "QWERTY";
             bindings = <
 &kp LS(LA(LCTRL))  &kp Q              &kp W         &kp E                            &kp R            &kp T      &kp Y      &kp U             &kp I                         &kp O         &kp P                       &kp LS(LA(LC(M)))
 &mt LCTRL ESCAPE   &hml LEFT_SHIFT A  &hml LCTRL S  &hml LEFT_ALT D                  &hml LEFT_GUI F  &kp G      &kp H      &hmr RIGHT_GUI J  &hmr RIGHT_ALT K              &hmr RCTRL L  &hmr RIGHT_SHIFT SEMICOLON  &kp SINGLE_QUOTE
@@ -287,7 +273,6 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             display-name = "Numbers";
-            label = "NUM";
             bindings = <
 &trans  &kp EXCLAMATION  &kp AT         &kp HASH      &kp DOLLAR    &kp PERCENT      &kp UP_ARROW  &as N7  &as N8  &as N9  &kp MINUS  &kp KP_DIVIDE
 &trans  &kp CARET        &kp AMPERSAND  &kp ASTERISK  &kp LEFT_GUI  &kp PAGE_UP      &kp KP_EQUAL  &as N4  &as N5  &as N6  &kp PLUS   &kp KP_ASTERISK
@@ -298,7 +283,6 @@
 
         symbols_layers {
             display-name = "Symbols";
-            label = "SYM";
             bindings = <
 &trans  &kp EXCLAMATION  &kp AT                &kp LEFT_BRACE        &kp RIGHT_BRACE        &dir_squot    &kp LS(LA(LEFT))  &kp LS(LG(LEFT_ARROW))  &kp LS(LG(RIGHT))  &kp LS(LA(RIGHT))  &trans             &kp C_PLAY_PAUSE
 &trans  &kp BACKSLASH    &kp LA(LS(NUMBER_2))  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &dir_dquot    &kp LEFT          &kp DOWN                &kp UP             &kp RIGHT          &kp C_VOLUME_DOWN  &kp C_VOLUME_UP
@@ -309,7 +293,6 @@
 
         system_layer {
             display-name = "System";
-            label = "SYS";
             bindings = <
 &bootloader  &dongle_boot  &trans  &trans  &kp LC(LS(LG(N4)))  &trans    &out OUT_USB  &out OUT_BLE  &kp CAPSLOCK  &trans  &dongle_boot  &bootloader
 &sys_reset   &trans        &trans  &trans  &trans              &trans    &trans        &trans        &trans        &trans  &trans        &sys_reset
