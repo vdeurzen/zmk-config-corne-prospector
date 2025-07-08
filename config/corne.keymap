@@ -5,8 +5,8 @@
  */
 
 #include <behaviors.dtsi>
+#include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/outputs.h>
 
 &caps_word { continue-list = <UNDERSCORE BACKSPACE DELETE MINUS>; };
 
@@ -37,70 +37,70 @@
         num1 {
             bindings = <&kp N1>;
             key-positions = <1 13>;
-            layers = <0 2>;
+            layers = <0>;
             require-prior-idle-ms = <50>;
         };
 
         num2 {
             bindings = <&kp N2>;
             key-positions = <2 14>;
-            layers = <0 2>;
+            layers = <0>;
             require-prior-idle-ms = <50>;
         };
 
         num3 {
             bindings = <&kp N3>;
             key-positions = <3 15>;
-            layers = <0 2>;
+            layers = <0>;
             require-prior-idle-ms = <50>;
         };
 
         num4 {
             bindings = <&kp N4>;
             key-positions = <4 16>;
-            layers = <0 2>;
+            layers = <0>;
             require-prior-idle-ms = <50>;
         };
 
         num5 {
             bindings = <&kp N5>;
             key-positions = <5 17>;
-            layers = <0 2>;
+            layers = <0>;
             require-prior-idle-ms = <50>;
         };
 
         num6 {
             bindings = <&kp N6>;
             key-positions = <6 18>;
-            layers = <0 2>;
+            layers = <0>;
             require-prior-idle-ms = <50>;
         };
 
         num7 {
             bindings = <&kp N7>;
             key-positions = <7 19>;
-            layers = <0 2>;
+            layers = <0>;
             require-prior-idle-ms = <50>;
         };
 
         num8 {
             bindings = <&kp N8>;
             key-positions = <8 20>;
-            layers = <0 2>;
+            layers = <0>;
             require-prior-idle-ms = <50>;
         };
 
         num9 {
             bindings = <&kp N9>;
             key-positions = <9 21>;
-            layers = <0 2>;
+            layers = <0>;
             require-prior-idle-ms = <50>;
         };
 
         num0 {
             bindings = <&kp N0>;
             key-positions = <10 22>;
-            layers = <0 2>;
+            layers = <0>;
             require-prior-idle-ms = <50>;
         };
 
@@ -257,46 +257,19 @@
 
             display-name = "Base";
             bindings = <
-&kp LS(LA(LCTRL))  &kp Q              &kp W         &kp E                            &kp R            &kp T      &kp Y      &kp U             &kp I                         &kp O         &kp P                       &kp LS(LA(LC(M)))
-&mt LCTRL ESCAPE   &hml LEFT_SHIFT A  &hml LCTRL S  &hml LEFT_ALT D                  &hml LEFT_GUI F  &kp G      &kp H      &hmr RIGHT_GUI J  &hmr RIGHT_ALT K              &hmr RCTRL L  &hmr RIGHT_SHIFT SEMICOLON  &kp SINGLE_QUOTE
-&kp LSHFT          &kp Z              &kp X         &kp C                            &kp V            &kp B      &kp N      &kp M             &kp COMMA                     &kp DOT       &kp FSLH                    &kp RIGHT_SHIFT
-                                                    &mt LS(LA(LC(LEFT_GUI))) ESCAPE  &lt 1 SPACE      &kp TAB    &kp ENTER  &lt 2 BACKSPACE   &mt LS(LA(LC(LEFT_GUI))) DEL
+&kp ESCAPE  &kp Q  &kp W  &kp F  &kp P         &kp G    &kp J      &kp L      &kp U                         &kp Y    &kp SEMICOLON  &kp BACKSPACE
+&kp TAB     &kp A  &kp R  &kp S  &kp T         &kp D    &kp H      &kp N      &kp E                         &kp I    &kp O          &kp SQT
+&kp LSHFT   &kp Z  &kp X  &kp C  &kp V         &kp B    &kp K      &kp M      &kp COMMA                     &kp DOT  &kp FSLH       &kp RIGHT_SHIFT
+                          &sl 1  &kp LEFT_ALT  &mo 1    &kp ENTER  &kp SPACE  &mt LS(LA(LC(LEFT_GUI))) DEL
             >;
         };
 
-        num_layer {
-            // -----------------------------------------------------------------------------------------
-            // |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
-            // | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
-            // | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
-            //                    | GUI |     | SPC |   | ENT |     | ALT |
-
-            display-name = "Numbers";
+        number-and-bt {
             bindings = <
-&trans  &kp EXCLAMATION  &kp AT         &kp HASH      &kp DOLLAR    &kp PERCENT      &kp UP_ARROW  &as N7  &as N8  &as N9  &kp MINUS  &kp KP_DIVIDE
-&trans  &kp CARET        &kp AMPERSAND  &kp ASTERISK  &kp LEFT_GUI  &kp PAGE_UP      &kp KP_EQUAL  &as N4  &as N5  &as N6  &kp PLUS   &kp KP_ASTERISK
-&trans  &trans           &trans         &kp HOME      &kp END       &kp PAGE_DOWN    &kp DOWN      &as N1  &as N2  &as N3  &kp COMMA  &kp DOT
-                                        &trans        &trans        &trans           &trans        &trans  &kp N0
-            >;
-        };
-
-        symbols_layers {
-            display-name = "Symbols";
-            bindings = <
-&trans  &kp EXCLAMATION  &kp AT                &kp LEFT_BRACE        &kp RIGHT_BRACE        &dir_dquot    &kp LS(LA(LEFT))  &kp LS(LG(LEFT_ARROW))  &kp LS(LG(RIGHT))  &kp LS(LA(RIGHT))  &trans             &kp C_PLAY_PAUSE
-&trans  &kp BACKSLASH    &kp LA(LS(NUMBER_2))  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &dir_squot    &kp LEFT          &kp DOWN                &kp UP             &kp RIGHT          &kp C_VOLUME_DOWN  &kp C_VOLUME_UP
-&trans  &kp AMPERSAND    &dir_tilde            &kp LBKT              &kp RBKT               &dir_btck     &ntild            &kp LS(DOWN)            &kp LS(UP)         &trans             &trans             &trans
-                                               &trans                &trans                 &trans        &trans            &trans                  &trans
-            >;
-        };
-
-        system_layer {
-            display-name = "System";
-            bindings = <
-&bootloader  &dongle_boot  &trans  &trans  &kp LC(LS(LG(N4)))  &trans    &out OUT_USB  &out OUT_BLE  &kp CAPSLOCK  &trans  &dongle_boot  &bootloader
-&sys_reset   &trans        &trans  &trans  &trans              &trans    &trans        &trans        &trans        &trans  &trans        &sys_reset
-&tog 0       &trans        &trans  &trans  &trans              &trans    &trans        &trans        &trans        &trans  &tog 1        &tog 5
-                                   &trans  &trans              &trans    &trans        &trans        &trans
+&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &trans  &trans        &trans    &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_NUMBER_0  &trans  &trans
+&trans      &trans        &trans        &trans  &trans        &trans    &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &trans           &trans  &trans
+&trans      &trans        &trans        &trans  &trans        &trans    &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &trans           &trans  &trans
+                                        &trans  &kp LEFT_ALT  &trans    &trans           &trans           &trans
             >;
         };
     };
@@ -305,13 +278,13 @@
         compatible = "zmk,conditional-layers";
 
         SYS {
-            if-layers = <1 2>;
-            then-layer = <3>;
+            if-layers = <1 1>;
+            then-layer = <1>;
         };
 
         SYS_REV {
-            if-layers = <2 1>;
-            then-layer = <3>;
+            if-layers = <1 1>;
+            then-layer = <1>;
         };
     };
 };
